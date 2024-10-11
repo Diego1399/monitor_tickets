@@ -1,0 +1,100 @@
+<div>
+    <div class="container-fluid">
+        <div class="row align-items-center" style="background-color: lightgray; padding: 10px;">
+
+            <!-- Columna izquierda (Etiqueta de estado y número de caso) -->
+            <div class="col">
+                <span class="badge bg-success">Abierto</span>
+                Caso No. #####
+            </div>
+
+            <!-- Columna derecha -->
+            <div class="col text-end">
+                <button type="button" class="btn btn-light">
+                    <i class="bi bi-envelope"></i> Enviar correo
+                </button>
+                <button type="button" class="btn btn-light">
+                    <i class="bi bi-box-arrow-right"></i> Salir
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row align-self-start">
+
+            <!-- Detalles de especialista-->
+            <div class="col-3 border-column">
+
+                <div class="mb-3">
+                    <label for="cliente" class="form-label">Cliente</label>
+                    <input type="text" class="form-control" id="cliente" placeholder="Ingrese el nombre del cliente">
+                </div>
+
+                <div class="mb-3">
+                    <label for="cliente" class="form-label">Especialista</label>
+                    <input type="text" class="form-control" id="cliente" placeholder="Ingrese el nombre del cliente">
+                </div>
+
+                <div class="mb-3">
+                    <label for="estado" class="form-label">Estado</label>
+                    <span class="badge bg-warning">En progreso</span>
+                </div>
+
+                <div class="mb-3">
+                    <label for="impacto" class="form-label">Impacto</label>
+                    <input type="text" class="form-control" id="impacto" placeholder="Ingrese el impacto">
+                </div>
+
+                <div class="mb-3">
+                    <label for="fechaSolucionEstimada" class="form-label">Fecha de solución estimada</label>
+                    <div>
+                        <label>DD/MM/YYYY HH:MM:SS</label>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="fechaSolucion" class="form-label">Fecha de solución</label>
+                    <div>
+                        <label>DD/MM/YYYY HH:MM:SS</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Caht con especialista-->
+            <div class="col-5 border-column chat-section" >
+                <h3>Chat</h3>
+                <div class="ps-container ps-theme-default ps-active-y" id="chat-content"
+                    style="overflow-y: scroll !important; height:400px !important;">
+
+                    <div class="media media-chat">
+                        <div class="media-body">
+                            <h6>Cliente</h6>
+                            <p>Hi</p>
+                            <p class="meta"><time datetime="2018">23:58</time></p>
+                        </div>
+                    </div>
+
+                    
+                </div>
+                <div class="border-light">
+                    <input type="text" placeholder="Envia un mensaje">
+                    <button>Enviar</button>
+                </div>
+            </div>
+
+            <!-- Detalles del caso-->
+            <div class="col-4 border-column">
+
+                <h5>Asunto: nombre del Asunto</h5>
+                <h5>Descripción</h5>
+                <div class="mb-3">
+                    <textarea class="form-control" rows="3"></textarea>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>
