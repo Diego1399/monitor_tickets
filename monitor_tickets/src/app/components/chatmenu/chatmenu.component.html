@@ -5,7 +5,7 @@
             <!-- Columna izquierda (Etiqueta de estado y número de caso) -->
             <div class="col">
                 <span class="badge bg-success">Abierto</span>
-                Caso No. #####
+                Caso No. {{ticket_actual.numero}}
             </div>
 
             <!-- Columna derecha -->
@@ -29,12 +29,12 @@
 
                 <div class="mb-3">
                     <label for="cliente" class="form-label">Cliente</label>
-                    <input type="text" class="form-control" id="cliente" placeholder="Ingrese el nombre del cliente">
+                    <input type="text" class="form-control" id="cliente" placeholder={{ticket_actual.user}}  disabled> 
                 </div>
 
                 <div class="mb-3">
                     <label for="cliente" class="form-label">Especialista</label>
-                    <input type="text" class="form-control" id="cliente" placeholder="Ingrese el nombre del cliente">
+                    <input type="text" class="form-control" id="cliente" placeholder={{ticket_actual.specialist}} disabled>
                 </div>
 
                 <div class="mb-3">
@@ -44,13 +44,13 @@
 
                 <div class="mb-3">
                     <label for="impacto" class="form-label">Impacto</label>
-                    <input type="text" class="form-control" id="impacto" placeholder="Ingrese el impacto">
+                    <input type="text" class="form-control" id="impacto" placeholder="Ingrese el impacto" disabled>
                 </div>
 
                 <div class="mb-3">
                     <label for="fechaSolucionEstimada" class="form-label">Fecha de solución estimada</label>
                     <div>
-                        <label>DD/MM/YYYY HH:MM:SS</label>
+                        <label>{{ticket_actual.Fecha_estimada}}</label>
                     </div>
                 </div>
 
@@ -63,34 +63,40 @@
             </div>
 
             <!-- Caht con especialista-->
-            <div class="col-5 border-column chat-section" >
-                <h3>Chat</h3>
-                <div class="ps-container ps-theme-default ps-active-y" id="chat-content"
-                    style="overflow-y: scroll !important; height:400px !important;">
+            <div class="col-5 border-column chat-section">
 
-                    <div class="media media-chat">
-                        <div class="media-body">
-                            <h6>Cliente</h6>
-                            <p>Hi</p>
-                            <p class="meta"><time datetime="2018">23:58</time></p>
+                <div class="card text-center card-container">
+
+                    <div class="card-header">
+                        Chat
+                    </div>
+                    <div class="card-body contenedor-chat h-100">
+                        <div *ngFor="let mensaje of chat">
+                            <p class="emisor">{{mensaje.emisor}}</p>
+                            <p class="enviado">
+                                {{mensaje.texto}}
+                            </p>
                         </div>
                     </div>
 
-                    
-                </div>
-                <div class="border-light">
-                    <input type="text" placeholder="Envia un mensaje">
-                    <button>Enviar</button>
+                    <form class="card-footer text-muted" (ngSubmit)="enviarMensaje()">
+                        <div class="input-group mb-3">
+                            <textarea type="text" class="form-control" placeholder="Escriba un mensaje" [(ngModel)]="nuevoMensaje" name="nuevoMensaje"></textarea>
+                            <div class="input-group-append" (click)="enviarMensaje()">
+                                <button class="btn btn-outline-secondary" type="button">Enviar</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
 
             <!-- Detalles del caso-->
             <div class="col-4 border-column">
 
-                <h5>Asunto: nombre del Asunto</h5>
+                <h5>Asunto: {{ticket_actual.subject}}</h5>
                 <h5>Descripción</h5>
                 <div class="mb-3">
-                    <textarea class="form-control" rows="3"></textarea>
+                    <textarea class="form-control" rows="3" disabled>{{ticket_actual.description}}</textarea>
                 </div>
             </div>
 
