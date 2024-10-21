@@ -16,4 +16,12 @@ export class ServiciosService {
   getTicket(): Observable<any> {
     return this.httpClient.get(`${this.barckendUrl}ticket`)
   }
+
+  addMensaje(data:any){
+    return this.httpClient.post(`${this.barckendUrl}addMensaje`, data);
+  }
+
+  getChat(): Observable<any>{
+    return this.httpClient.get(`${this.barckendUrl}chat`)
+  }
 }

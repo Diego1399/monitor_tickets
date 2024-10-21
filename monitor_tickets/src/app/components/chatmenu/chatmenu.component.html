@@ -4,15 +4,17 @@
 
             <!-- Columna izquierda (Etiqueta de estado y número de caso) -->
             <div class="col">
-                <span class="badge bg-success">Abierto</span>
-                Caso No. {{ticket_actual.numero}}
+                <span class="badge bg-success" name="numero">Abierto</span>
+                Caso No. {{ticket_actual?.numero}}
             </div>
 
             <!-- Columna derecha -->
             <div class="col text-end">
+                <!--
                 <button type="button" class="btn btn-light">
                     <i class="bi bi-envelope"></i> Enviar correo
                 </button>
+            -->
                 <button type="button" class="btn btn-light">
                     <i class="bi bi-box-arrow-right"></i> Salir
                 </button>
@@ -29,35 +31,30 @@
 
                 <div class="mb-3">
                     <label for="cliente" class="form-label">Cliente</label>
-                    <input type="text" class="form-control" id="cliente" placeholder={{ticket_actual.user}}  disabled> 
+                    <input type="text" class="form-control" id="cliente" placeholder={{ticket_actual?.user}}  disabled> 
                 </div>
 
                 <div class="mb-3">
                     <label for="cliente" class="form-label">Especialista</label>
-                    <input type="text" class="form-control" id="cliente" placeholder={{ticket_actual.specialist}} disabled>
+                    <input type="text" class="form-control" id="cliente" placeholder={{ticket_actual?.specialist}} disabled>
                 </div>
 
                 <div class="mb-3">
                     <label for="estado" class="form-label">Estado</label>
-                    <span class="badge bg-warning">En progreso</span>
-                </div>
-
-                <div class="mb-3">
-                    <label for="impacto" class="form-label">Impacto</label>
-                    <input type="text" class="form-control" id="impacto" placeholder="Ingrese el impacto" disabled>
+                    <span id="spanEstado" class="badge" style="float: right;">{{ticket_actual?.status}}</span>
                 </div>
 
                 <div class="mb-3">
                     <label for="fechaSolucionEstimada" class="form-label">Fecha de solución estimada</label>
                     <div>
-                        <label>{{ticket_actual.Fecha_estimada}}</label>
+                        <label>{{ticket_actual?.Fecha_estimada}}</label>
                     </div>
                 </div>
 
                 <div class="mb-3">
                     <label for="fechaSolucion" class="form-label">Fecha de solución</label>
                     <div>
-                        <label>DD/MM/YYYY HH:MM:SS</label>
+                        <label>{{ticket_actual?.fecha_solucion}}</label>
                     </div>
                 </div>
             </div>
@@ -72,16 +69,16 @@
                     </div>
                     <div class="card-body contenedor-chat h-100">
                         <div *ngFor="let mensaje of chat">
-                            <p class="emisor">{{mensaje.emisor}}</p>
+                            <p class="emisor">{{mensaje?.emisor}}</p>
                             <p class="enviado">
-                                {{mensaje.texto}}
+                                {{mensaje?.texto}}
                             </p>
                         </div>
                     </div>
 
                     <form class="card-footer text-muted" (ngSubmit)="enviarMensaje()">
                         <div class="input-group mb-3">
-                            <textarea type="text" class="form-control" placeholder="Escriba un mensaje" [(ngModel)]="nuevoMensaje" name="nuevoMensaje"></textarea>
+                            <textarea type="text" class="form-control" placeholder="Escriba un mensaje" [(ngModel)]="mensajeInput" name="mensaje"></textarea>
                             <div class="input-group-append" (click)="enviarMensaje()">
                                 <button class="btn btn-outline-secondary" type="button">Enviar</button>
                             </div>
@@ -93,10 +90,10 @@
             <!-- Detalles del caso-->
             <div class="col-4 border-column">
 
-                <h5>Asunto: {{ticket_actual.subject}}</h5>
+                <h5>Asunto: {{ticket_actual?.subject}}</h5>
                 <h5>Descripción</h5>
                 <div class="mb-3">
-                    <textarea class="form-control" rows="3" disabled>{{ticket_actual.description}}</textarea>
+                    <textarea class="form-control" rows="3" disabled>{{ticket_actual?.description}}</textarea>
                 </div>
             </div>
 
