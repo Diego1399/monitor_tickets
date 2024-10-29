@@ -26,8 +26,10 @@ export class ChatmenuComponent implements OnInit {
   constructor(private servicio: ServiciosService, private render: Renderer2) { }
 
   ngOnInit(): void {
+    /*
     this.getTicket();
     this.getChat();
+    */
   }
 
   enviarMensaje() {

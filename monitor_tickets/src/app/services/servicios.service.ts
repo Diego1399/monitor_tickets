@@ -24,4 +24,8 @@ export class ServiciosService {
   getChat(): Observable<any>{
     return this.httpClient.get(`${this.barckendUrl}chat`)
   }
+
+  getUsuario(data:any){
+    return this.httpClient.post(`${this.barckendUrl}login`,data)
+  }
 }
