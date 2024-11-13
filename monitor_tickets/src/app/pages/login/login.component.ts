@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { RouterOutlet, Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,4 +10,9 @@ import { RouterOutlet } from '@angular/router';
 })
 export class LoginComponent {
 
+  constructor(private router: Router){}
+
+  redirigir(){
+    this.router.navigate(['home']);
+  }
 }
