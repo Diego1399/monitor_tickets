@@ -25,7 +25,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css"
             ],
             "scripts": [],
             "server": "src/main.server.ts",

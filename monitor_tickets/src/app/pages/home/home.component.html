@@ -1,1 +1,284 @@
-<p>home works!</p>
+<!--<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+    <div class="sideBarre">
+            <div class="sideBarre__cercle">
+
+            </div>
+            <h1>Monitor Tickets</h1>
+        <div class="sideBarre__menu">
+            <ul>
+                <li><a href="#"><i class="fas fa-user"></i>     Perfil</a></li>
+                <li><a href="#"><i class="fas fa-cog"></i>      Ajustes</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="mainContent">
+        <nav>
+            <div class="user">
+
+            </div>
+        </nav>
+
+        <div class="boxContent">
+            <div class="firstRow">
+                <div class="cardOne">
+                    <div class="description">
+                        <p>Total Tickets</p>
+                        <h3>150</h3>
+                    </div>
+                </div>
+                <div class="cardTwo">
+                    <div class="description">
+                        <p>Tickets Abiertos</p>
+                        <h3>50</h3>
+                    </div>
+                </div>
+                <div class="cardThree">
+                    <div class="description">
+                        <p>Tickets Solucionadoos</p>
+                        <h3>30</h3>
+                    </div>
+                </div>
+                <div class="cardFour">
+                    <div class="description">
+                        <p>Tickets Cerrados</p>
+                        <h3>70</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="searchBar"> 
+                <input type="text" placeholder="Buscar tickets..."> 
+            </div>
+            <div class="secondRow">
+                <div class="cardChart yellow">
+                    <h2>Abiertos</h2>
+                </div>
+                <div class="cardChart green">
+                    <h2>En Progreso</h2>
+                </div>
+                <div class="cardChart blue">
+                    <h2>Solucionados</h2>
+                </div>
+            </div>
+            <div class="thirdRow">
+
+            </div>
+        </div>
+    </div>
+
+</body>-->
+
+<html lang="en">
+<head>
+
+	<!-- Boxicons -->
+	<link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css'>
+
+	<title>AdminHub</title>
+</head>
+<body>
+
+
+	<!-- SIDEBAR -->
+	<section id="sidebar">
+		<a href="#" class="brand">
+			<i class='bx bxs-smile'></i>
+			<span class="text">Moni Ticket</span>
+		</a>
+		<ul class="side-menu top">
+			<li class="active">
+				<a href="#">
+					<i class='bx bxs-dashboard' ></i>
+					<span class="text">Dashboard</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<i class='bx bxs-doughnut-chart' ></i>
+					<span class="text">Gráficas</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<i class='bx bxs-message-dots' ></i>
+					<span class="text">Mensajes</span>
+				</a>
+			</li>
+			<li>
+				<a href="#">
+					<i class='bx bxs-group' ></i>
+					<span class="text">Proyectos</span>
+				</a>
+			</li>
+		</ul>
+		<ul class="side-menu">
+			<li>
+				<a href="#">
+					<i class='bx bxs-cog' ></i>
+					<span class="text">Ajustes</span>
+				</a>
+			</li>
+			<li>
+				<a href="#" class="logout">
+					<i class='bx bxs-log-out-circle' ></i>
+					<span class="text">Cerrar Sesión</span>
+				</a>
+			</li>
+		</ul>
+	</section>
+	<!-- SIDEBAR -->
+
+
+
+	<!-- CONTENT -->
+	<section id="content">
+		<!-- NAVBAR -->
+		<nav>
+			<i class='bx bx-menu' ></i>
+			<a href="#" class="nav-link">Categorias</a>
+			<form action="#">
+				<div class="form-input">
+					<input type="search" placeholder="Search...">
+					<button type="submit" class="search-btn"><i class='bx bx-search' ></i></button>
+				</div>
+			</form>
+			<a href="#" class="notification">
+				<i class='bx bxs-bell' ></i>
+				<span class="num">8</span>
+			</a>
+			<a href="#" class="profile">
+				<img src="../../../assets/img/usuario_random.png">
+			</a>
+		</nav>
+		<!-- NAVBAR -->
+
+		<!-- MAIN -->
+		<main>
+			<div class="head-title">
+				<div class="left">
+					<h1>Dashboard</h1>
+					<ul class="breadcrumb">
+						<li>
+							<a href="#">Dashboard</a>
+						</li>
+						<li><i class='bx bx-chevron-right' ></i></li>
+						<li>
+							<a class="active" href="#">Home</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<ul class="box-info">
+				<li>
+					<i class='bx bx-receipt' ></i>
+					<span class="text">
+						<h3>1020</h3>
+						<p>En progreso</p>
+					</span>
+				</li>
+				<li>
+					<i class='bx bx-receipt' ></i>
+					<span class="text">
+						<h3>2834</h3>
+						<p>Abiertos</p>
+					</span>
+				</li>
+				<li>
+					<i class='bx bx-receipt' ></i>
+					<span class="text">
+						<h3>2543</h3>
+						<p>Transferidos</p>
+					</span>
+				</li>
+			</ul>
+
+
+			<div class="table-data">
+				<div class="order">
+					<div class="head">
+						<h3>Tickets Recientes</h3>
+						<i class='bx bx-search' ></i>
+						<i class='bx bx-filter' ></i>
+						<i class='bx bx-grid-alt' ></i>
+					</div>
+					<table>
+						<thead>
+							<tr>
+								<th>Encargado</th>
+								<th>Fecha de Creación</th>
+								<th>Progreso</th>
+								<th>Estado</th>
+								<th>Conexión</th>
+								<th>  </th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>
+									<img src="../../../assets/img/usuario_random.png">
+									<p>Allan Hernández</p>
+								</td>
+								<td>01-10-2024</td>
+								<td>50 %</td>
+								<td><span class="status completed">Solucionado</span></td>
+								<td>Online <i class="bx bxs-circle"></i></td>
+								<td><a href="#"><i class="bx bx-dots-vertical-rounded"></i></a></td>
+							</tr>
+							<tr>
+								<td>
+									<img src="../../../assets/img/usuario_random.png">
+									<p>Allan Hernández</p>
+								</td>
+								<td>01-10-2024</td>
+                                <td>50 %</td>
+								<td><span class="status pending">Abierto</span></td>
+                                <td>Online <i class="bx bxs-circle"></i></td>
+								<td><a href="#"><i class="bx bx-dots-vertical-rounded"></i></a></td>
+							</tr>
+							<tr>
+								<td>
+									<img src="../../../assets/img/usuario_random.png">
+									<p>Allan Hernández</p>
+								</td>
+								<td>01-10-2024</td>
+                                <td>50 %</td>
+								<td><span class="status process">En Progreso</span></td>
+                                <td>Online <i class="bx bxs-circle"></i></td>
+								<td><a href="#"><i class="bx bx-dots-vertical-rounded"></i></a></td>
+							</tr>
+							<tr>
+								<td>
+									<img src="../../../assets/img/usuario_random.png">
+									<p>Allan Hernández</p>
+								</td>
+								<td>01-10-2024</td>
+                                <td>50 %</td>
+								<td><span class="status pending">Abierto</span></td>
+                                <td>Online <i class="bx bxs-circle"></i></td>
+								<td><a href="#"><i class="bx bx-dots-vertical-rounded"></i></a></td>
+							</tr>
+							<tr>
+								<td>
+									<img src="../../../assets/img/usuario_random.png">
+									<p>Allan Hernández</p>
+								</td>
+								<td>01-10-2024</td>
+                                <td>50 %</td>
+								<td><span class="status completed">Solucionado</span></td>
+                                <td>Online <i class="bx bxs-circle"></i></td>
+								<td><a href="#"><i class="bx bx-dots-vertical-rounded"></i></a></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+			</div>
+		</main>
+		<!-- MAIN -->
+	</section>
+</body>
+</html>
