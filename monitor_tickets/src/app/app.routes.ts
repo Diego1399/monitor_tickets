@@ -1,12 +1,12 @@
 import { Routes } from '@angular/router';
-import {ChatmenuComponent} from './components/chatmenu/chatmenu.component'
+import {ChatmenuComponent} from './pages/chatmenu/chatmenu.component'
 import { LoginComponent } from './pages/login/login.component';
 import { AppComponent } from './app.component';
-import { DetalleComponent } from './components/detalle/detalle.component'
+import { HomeComponent } from './pages/home/home.component'
+import { SidebarComponent } from './components/sidebar/sidebar.component'
 
 export const routes: Routes = [
     {path:'', component: LoginComponent},
-    {path:'login', component: LoginComponent},
     {path: 'chatmenu', component: ChatmenuComponent},
-    {path: 'detalle', component: DetalleComponent}
+    {path: 'home', component: HomeComponent}
 ];

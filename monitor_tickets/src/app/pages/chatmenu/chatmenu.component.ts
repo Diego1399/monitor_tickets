@@ -1,53 +1,42 @@
 import { Component, OnInit, Renderer2 } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-
 import { HttpClientModule } from '@angular/common/http';
 
-import { Mensaje } from '../../objetos/mensaje'
-import { Ticket } from '../../objetos/ticket'
-
 import { ServiciosService } from '../../services/servicios.service'
+
+import { ChatService } from '../../services/chat.service'
 
 @Component({
   selector: 'app-chatmenu',
   standalone: true,
-  imports: [FormsModule, CommonModule, HttpClientModule],
+  imports: [CommonModule, FormsModule, HttpClientModule],
   templateUrl: './chatmenu.component.html',
   styleUrl: './chatmenu.component.css'
 })
 
 export class ChatmenuComponent implements OnInit {
 
-  chat: Mensaje[] = [];
   mensajeInput: string = "";
   ticket_actual: any;
+  chat: string[] = [];
 
-  constructor(private servicio: ServiciosService, private render: Renderer2) { }
+  constructor(private servicio: ServiciosService, private render: Renderer2, private socket: ChatService) {
+    this.socket.onMessage().subscribe((msg) => {
+      this.chat.push(msg);
+    });
+  }
+
+
 
   ngOnInit(): void {
-    /*
-    this.getTicket();
-    this.getChat();
-    */
+
   }
 
   enviarMensaje() {
-    if (this.mensajeInput != "") {
-
-      const currentDate = new Date();
-
-      let nuevoMensaje = new Mensaje("Diego", this.mensajeInput, currentDate.toISOString());
-
-      this.chat.push(nuevoMensaje)
-
-      this.servicio.addMensaje(this.chat).subscribe(
-        res => {
-          console.log('Se envio el mensaje')
-        }
-      )
-
-      this.mensajeInput = "";
+    if (this.mensajeInput.trim()) {
+      this.socket.sendMessage(this.mensajeInput);
+      this.mensajeInput = '';
     }
 
   }
@@ -76,11 +65,6 @@ export class ChatmenuComponent implements OnInit {
   }
 
   getChat() {
-    this.servicio.getChat().subscribe(
-      res => {
-        console.log('Aquie esta el get chat')
-        console.log(res)
-      }
-    )
+
   }
 }
