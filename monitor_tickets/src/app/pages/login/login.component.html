@@ -5,10 +5,10 @@
 			<form class="login">
                 <img class="login__image" src="../../../assets/img/usuario_login.png" alt="">
 				<div class="login__field">
-					<input type="text" class="login__input" placeholder="Usuario / Email">
+					<input type="text" class="login__input" placeholder="Usuario / Email" [(ngModel)]="user.username" name="username">
 				</div>
 				<div class="login__field">
-					<input type="password" class="login__input" placeholder="Contraseña">
+					<input type="password" class="login__input" placeholder="Contraseña" [(ngModel)]="user.password" name="password">
 				</div>
                 <br>
 				<button class="button login__submit" (click)="redirigir()">

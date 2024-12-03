@@ -1,0 +1,103 @@
+<div>
+    <div class="container-fluid">
+        <div class="row align-items-center" style="background-color: lightgray; padding: 10px;">
+
+            <!-- Columna izquierda (Etiqueta de estado y número de caso) -->
+            <div class="col">
+                <span class="badge bg-success" name="numero">Abierto</span>
+                Caso No. {{ticket_actual?.numero}}
+            </div>
+
+            <!-- Columna derecha -->
+            <div class="col text-end">
+                <!--
+                <button type="button" class="btn btn-light">
+                    <i class="bi bi-envelope"></i> Enviar correo
+                </button>
+            -->
+                <button type="button" class="btn btn-light">
+                    <i class="bi bi-box-arrow-right"></i> <a href="detalle">Salir</a>
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row align-self-start">
+
+            <!-- Detalles de especialista-->
+            <div class="col-3 border-column">
+
+                <div class="mb-3">
+                    <label for="cliente" class="form-label">Cliente</label>
+                    <input type="text" class="form-control" id="cliente" placeholder={{ticket_actual?.user}}  disabled> 
+                </div>
+
+                <div class="mb-3">
+                    <label for="cliente" class="form-label">Especialista</label>
+                    <input type="text" class="form-control" id="cliente" placeholder={{ticket_actual?.specialist}} disabled>
+                </div>
+
+                <div class="mb-3">
+                    <label for="estado" class="form-label">Estado</label>
+                    <span id="spanEstado" class="badge" style="float: right;">{{ticket_actual?.status}}</span>
+                </div>
+
+                <div class="mb-3">
+                    <label for="fechaSolucionEstimada" class="form-label">Fecha de solución estimada</label>
+                    <div>
+                        <label>{{ticket_actual?.Fecha_estimada}}</label>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="fechaSolucion" class="form-label">Fecha de solución</label>
+                    <div>
+                        <label>{{ticket_actual?.fecha_solucion}}</label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Caht con especialista-->
+            <div class="col-5 border-column chat-section">
+
+                <div class="card text-center card-container">
+
+                    <div class="card-header">
+                        Chat
+                    </div>
+                    <div class="card-body contenedor-chat h-100">
+                        <div *ngFor="let mensaje of chat">
+                            <!--<p class="emisor">{{mensaje}}</p>-->
+                            <p class="enviado">
+                                {{mensaje}}
+                            </p>
+                        </div>
+                    </div>
+
+                    <form class="card-footer text-muted" (ngSubmit)="enviarMensaje()">
+                        <div class="input-group mb-3">
+                            <textarea type="text" class="form-control" placeholder="Escriba un mensaje" [(ngModel)]="mensajeInput" name="mensaje"></textarea>
+                            <div class="input-group-append" (click)="enviarMensaje()">
+                                <button class="btn btn-outline-secondary" type="button">Enviar</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Detalles del caso-->
+            <div class="col-4 border-column">
+
+                <h5>Asunto: {{ticket_actual?.subject}}</h5>
+                <h5>Descripción</h5>
+                <div class="mb-3">
+                    <textarea class="form-control" rows="3" disabled>{{ticket_actual?.description}}</textarea>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</div>

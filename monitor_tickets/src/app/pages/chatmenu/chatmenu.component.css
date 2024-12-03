@@ -1,0 +1,45 @@
+* {
+    font-size: x-large;
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+}
+
+.full-height {
+    height: 100vh; /* 100% de la altura de la vista */
+}
+.chat-section {
+    overflow-y: auto;
+}
+.border-column {
+    border: 1px solid black;
+    height: calc(100vh - 70px); /* Resta la altura de la barra superior */
+}
+
+.card-container {
+    height: 100%;
+}
+
+.enviado {
+    width: 100%;
+    display: block;
+    float: left;
+    background-color: gray;
+    color: black;
+    min-width: 50.01%;
+    border-radius: 5px;
+    text-align: left;
+    padding: 10px;
+}
+
+.emisor {
+    display: block;
+    float: left;
+    text-align: left;
+}
+
+.contenedor-chat {
+    overflow: scroll;
+}
