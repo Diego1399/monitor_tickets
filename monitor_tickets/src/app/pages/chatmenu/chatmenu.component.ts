@@ -27,8 +27,6 @@ export class ChatmenuComponent implements OnInit {
     });
   }
 
-
-
   ngOnInit(): void {
 
   }
@@ -38,9 +36,7 @@ export class ChatmenuComponent implements OnInit {
       this.socket.sendMessage(this.mensajeInput);
       this.mensajeInput = '';
     }
-
   }
-
 
   getTicket() {
     this.servicio.getTicket().subscribe(

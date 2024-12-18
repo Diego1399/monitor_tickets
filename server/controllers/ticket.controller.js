@@ -16,16 +16,15 @@ const getUsers = async () => {
     }
 }
 
-const getTickets = async (req, res) => {
-    const userId = req.params.id;
+const getTickets = async (data) => {
     try {
         const [tickets] = await (await getConnection())
-            .query('SELECT * FROM ticket_view where user_id = ?', [userId]);
+            .query('SELECT * FROM ticket_view where user_id = ?', [data]);
         console.table(tickets)
-        res.status(200).json(tickets)
+        return tickets
     } catch (error) {
-        console.error('Error al obtener tickets', error.message);
-        res.status(500).send('Error en el servidor');
+        console.error('Error al obtener los tickets:', error.message);
+        throw new Error('Error al obtener los tickets');
     }
 }
 

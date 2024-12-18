@@ -31,4 +31,16 @@ export class ChatService {
             });
         });
     }
+
+    getTickets(user: string): Observable<any>  {
+      this.socket.emit('get-tickets-list', user);
+      return new Observable((observer) => {
+        this.socket.on('user-ticket-list', (list) => {
+          observer.next(list)
+        });
+        this.socket.on('error', (error) => {
+          observer.error(error)
+        })
+      })
+    }
 }

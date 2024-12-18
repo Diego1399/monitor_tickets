@@ -44,7 +44,7 @@ app.post('/login', async (req, res) => {
 })
 
 
-app.get('/tickets/:id', controllers.getTickets)
+//app.get('/tickets/:id', controllers.getTickets)
 
 
 app.get('/getUsers', controllers.getUsers);
