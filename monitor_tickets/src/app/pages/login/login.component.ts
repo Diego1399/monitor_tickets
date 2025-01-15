@@ -3,7 +3,6 @@ import { RouterOutlet, Router } from '@angular/router';
 import { ServiciosService } from '../../services/servicios.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { AppserviceService } from '../../services/appservice.service';
 
 @Component({
   selector: 'app-login',
@@ -16,8 +15,7 @@ export class LoginComponent {
 
   constructor(
     private router: Router, 
-    private apiservice: ServiciosService, 
-    private appservice: AppserviceService
+    private apiservice: ServiciosService
   ) { }
 
   user = {
@@ -28,15 +26,12 @@ export class LoginComponent {
   showError: boolean = false;
 
   redirigir() {
-
     this.apiservice.getUsuario(this.user).subscribe(res => {
-      this.appservice.setUser(res)
-
       this.showError = false;
-
       this.router.navigate(['home']);
     }, err => {
       this.showError = true;
+
     })
 
   }

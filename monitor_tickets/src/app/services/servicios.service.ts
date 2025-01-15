@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http'
 
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -26,5 +26,11 @@ export class ServiciosService {
 
   getUsuario(data:any){
     return this.httpClient.post(`${this.barckendUrl}login`,data)
+      .pipe(
+        tap((res: any) => {
+          localStorage.setItem('user', JSON.stringify(res));
+        }
+      )
+    )
   }
 }
