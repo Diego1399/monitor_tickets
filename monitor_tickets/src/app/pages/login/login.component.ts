@@ -13,6 +13,7 @@ import { CommonModule } from '@angular/common';
 })
 export class LoginComponent {
 
+  // Constructor para inicializar el router y el servicio
   constructor(
     private router: Router, 
     private apiservice: ServiciosService
@@ -25,6 +26,7 @@ export class LoginComponent {
 
   showError: boolean = false;
 
+  // Función para redirigir a la página de inicio
   redirigir() {
     this.apiservice.getUsuario(this.user).subscribe(res => {
       this.showError = false;

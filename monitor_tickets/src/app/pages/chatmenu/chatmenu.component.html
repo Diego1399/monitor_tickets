@@ -4,8 +4,8 @@
 
             <!-- Columna izquierda (Etiqueta de estado y número de caso) -->
             <div class="col">
-                <span class="badge bg-success" name="numero">Abierto</span>
-                Caso No. {{ticket_actual?.numero}}
+                <span class="badge bg-success" name="numero">{{ticket_actual?.status}}</span>
+                Caso No. {{ticket_actual?.aranda_ticket_id}}
             </div>
 
             <!-- Columna derecha -->
@@ -31,12 +31,12 @@
 
                 <div class="mb-3">
                     <label for="cliente" class="form-label">Cliente</label>
-                    <input type="text" class="form-control" id="cliente" placeholder={{ticket_actual?.user}}  disabled> 
+                    <input type="text" class="form-control" id="cliente" placeholder={{ticket_actual?.cliente}}  disabled> 
                 </div>
 
                 <div class="mb-3">
                     <label for="cliente" class="form-label">Especialista</label>
-                    <input type="text" class="form-control" id="cliente" placeholder={{ticket_actual?.specialist}} disabled>
+                    <input type="text" class="form-control" id="cliente" placeholder={{ticket_actual?.especialista}} disabled>
                 </div>
 
                 <div class="mb-3">

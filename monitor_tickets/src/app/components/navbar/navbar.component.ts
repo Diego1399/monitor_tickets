@@ -13,6 +13,7 @@ export class NavbarComponent {
   user: any;
 
   ngOnInit() {
+    // Verificar si hay un usuario en el localstorage
     const user = localStorage.getItem('user');
     if(user) {
       this.user = JSON.parse(user);
@@ -20,6 +21,7 @@ export class NavbarComponent {
     }
   }
 
+  // Función para ir a crear ticket
   crearTicket() {
     const url = `${window.location.origin}/ticket`;
     window.open(url, '_blank')

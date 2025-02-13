@@ -157,7 +157,9 @@
 						</thead>
 						<tbody *ngFor="let t of tickets">
 							<tr>
-								<td>{{t.aranda_ticket_id}}</td>
+								<td>
+									<a [routerLink]="['/chatmenu']" [queryParams]="{ticket: getTicketJSON(t)}">{{t.aranda_ticket_id}}</a>
+								</td>
 								<td>{{t.especialista}}</td>
 								<td>{{t.created_at}}</td>
 								<td>
