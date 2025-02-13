@@ -23,6 +23,10 @@ export class ChatService {
         this.socket.emit('message', message);
     }
 
+    sendChat(chat: any): void {
+      this.socket.emit('chat', chat);
+    }
+
     // Escuchar mensajes del servidor
     onMessage(): Observable<string> {
         return new Observable((observer) => {
@@ -31,6 +35,15 @@ export class ChatService {
             });
         });
     }
+
+    onChat(): Observable<any> {
+      return new Observable((observer) => {
+        this.socket.on('chat', (obj: any) => {
+          observer.next(obj)
+        })
+      })
+    }
+
 
     getTickets(user: string): Observable<any>  {
       this.socket.emit('get-tickets-list', user);
@@ -43,4 +56,5 @@ export class ChatService {
         })
       })
     }
+    
 }

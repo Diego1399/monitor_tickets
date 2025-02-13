@@ -256,7 +256,9 @@ i.bx.bx-circle{
     color: var(--online);
 }
 
-
+i.bx.bx-search{
+    border: 1px solid #060714;
+}
 
 
 
@@ -374,12 +376,6 @@ i.bx.bx-circle{
 i.bx bxs-circle{
     color: lightgreen;
 }
-
-
-
-
-
-
 
 
 @media screen and (max-width: 768px) {

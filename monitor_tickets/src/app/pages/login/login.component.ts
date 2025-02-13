@@ -3,7 +3,7 @@ import { RouterOutlet, Router } from '@angular/router';
 import { ServiciosService } from '../../services/servicios.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { AppserviceService } from '../../services/appservice.service';
+
 
 @Component({
   selector: 'app-login',
@@ -14,11 +14,21 @@ import { AppserviceService } from '../../services/appservice.service';
 })
 export class LoginComponent {
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+  constructor(private router: Router, private servicio: ServiciosService) { }
+
+
+=======
+=======
+  // Constructor para inicializar el router y el servicio
+>>>>>>> front/diego
   constructor(
     private router: Router, 
-    private apiservice: ServiciosService, 
-    private appservice: AppserviceService
+    private apiservice: ServiciosService
   ) { }
+>>>>>>> backend
 
   user = {
     username: "",
@@ -27,16 +37,14 @@ export class LoginComponent {
 
   showError: boolean = false;
 
+  // Función para redirigir a la página de inicio
   redirigir() {
-
     this.apiservice.getUsuario(this.user).subscribe(res => {
-      this.appservice.setUser(res)
-
       this.showError = false;
-
       this.router.navigate(['home']);
     }, err => {
       this.showError = true;
+
     })
 
   }

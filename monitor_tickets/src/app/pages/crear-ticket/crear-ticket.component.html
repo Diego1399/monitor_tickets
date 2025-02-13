@@ -1,0 +1,13 @@
+<div class="mb-3">
+  <label class="form-label">Asunto</label>
+  <input class="form-control" id="exampleFormControlInput1" [(ngModel)]="ticket.subject">
+</div>
+<div class="mb-3">
+  <label for="exampleFormControlTextarea1" class="form-label">Descripcion</label>
+  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" [(ngModel)]="ticket.description"></textarea>
+</div>
+<select class="form-select" aria-label="Default select example" [(ngModel)]="ticket.specialistId">
+  <option *ngFor="let u of users" value={{u.aranda_user_id}}>{{u.username}}</option>
+</select>
+
+<button (click)="createTicket()">Crear Caso</button>
