@@ -1,3 +1,5 @@
+use monitorticket;
+
 INSERT INTO users (aranda_user_id,username,email,password_hash,role,created_at,updated_at) 
 VALUES (3,'Diego','diego.cortez@iungo.co','DC2023$$','admin',NOW(),NOW());
 

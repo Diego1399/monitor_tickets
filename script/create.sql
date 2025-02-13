@@ -19,6 +19,16 @@ CREATE TABLE tickets (
     user_id INT
 );
 
+-- Tabla para mensajes
+CREATE TABLE message (
+	id_chat int auto_increment primary key,
+    id_ticket int not null,
+    id_usuario int not null,
+    message text,
+    fecha_envio timestamp default current_timestamp
+);
+
+
 -- Tabla para Usuarios
 CREATE TABLE users (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -67,21 +77,6 @@ CREATE TABLE attachments (
     created_at DATETIME
 );
 
-CREATE VIEW ticket_view AS
-SELECT 
-    t.aranda_ticket_id,
-    t.subject,
-    t.description,
-    t.status,
-    date_format(t.created_at, '%d-%m-%Y') AS created_at,
-    t.user_id,
-    u1.username AS 'cliente',
-    u2.username AS 'especialista'
-FROM tickets t
-INNER JOIN users u1 ON u1.id = t.user_id
-INNER JOIN users u2 ON u2.id = t.specialist_id;
-
-
 -- Tabla Tickets: Añadir claves foráneas
 ALTER TABLE tickets
     ADD FOREIGN KEY (specialist_id) REFERENCES users(id),
@@ -104,3 +99,8 @@ ALTER TABLE case_notes
 ALTER TABLE attachments
     ADD FOREIGN KEY (case_id) REFERENCES cases(id),
     ADD FOREIGN KEY (uploaded_by_user_id) REFERENCES users(id);
+
+-- Tabla mensaje: Añadir claves foráneas
+ALTER TABLE message
+	add FOREIGN KEY (id_ticket) REFERENCES tickets(id) ON DELETE CASCADE,
+    add FOREIGN KEY (id_usuario) REFERENCES users(id) ON DELETE CASCADE;
