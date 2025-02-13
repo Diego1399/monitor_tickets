@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { AppserviceService } from '../../services/appservice.service'
-
 
 @Component({
   selector: 'app-navbar',
@@ -10,11 +8,22 @@ import { AppserviceService } from '../../services/appservice.service'
 })
 export class NavbarComponent {
 
-  constructor(private appService: AppserviceService) {}
+  constructor() {}
 
   user: any;
 
   ngOnInit() {
-    this.user = this.appService.getUser();
+    // Verificar si hay un usuario en el localstorage
+    const user = localStorage.getItem('user');
+    if(user) {
+      this.user = JSON.parse(user);
+      console.log(`Esto es del localstorage ${this.user}`)
+    }
+  }
+
+  // Función para ir a crear ticket
+  crearTicket() {
+    const url = `${window.location.origin}/ticket`;
+    window.open(url, '_blank')
   }
 }
