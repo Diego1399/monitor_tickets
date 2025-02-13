@@ -3,7 +3,7 @@ import { RouterOutlet, Router } from '@angular/router';
 import { ServiciosService } from '../../services/servicios.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-
+import { AppserviceService } from '../../services/appservice.service';
 
 
 @Component({
@@ -15,21 +15,36 @@ import { CommonModule } from '@angular/common';
 })
 export class LoginComponent {
 
+<<<<<<< HEAD
 
   constructor(private router: Router, private servicio: ServiciosService) { }
 
 
+=======
+  constructor(
+    private router: Router, 
+    private apiservice: ServiciosService, 
+    private appservice: AppserviceService
+  ) { }
+>>>>>>> backend
 
   user = {
     username: "",
     password: "",
   }
 
+  showError: boolean = false;
+
   redirigir() {
-    console.log(this.user)
-    this.servicio.getUsuario(this.user).subscribe(res => {
-      console.log(res)
+
+    this.apiservice.getUsuario(this.user).subscribe(res => {
+      this.appservice.setUser(res)
+
+      this.showError = false;
+
       this.router.navigate(['home']);
+    }, err => {
+      this.showError = true;
     })
 
   }
