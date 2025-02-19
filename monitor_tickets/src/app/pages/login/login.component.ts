@@ -4,6 +4,7 @@ import { ServiciosService } from '../../services/servicios.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
+
 @Component({
   selector: 'app-login',
   standalone: true,
@@ -13,11 +14,21 @@ import { CommonModule } from '@angular/common';
 })
 export class LoginComponent {
 
+<<<<<<< HEAD
+<<<<<<< HEAD
+
+  constructor(private router: Router, private servicio: ServiciosService) { }
+
+
+=======
+=======
   // Constructor para inicializar el router y el servicio
+>>>>>>> front/diego
   constructor(
     private router: Router, 
     private apiservice: ServiciosService
   ) { }
+>>>>>>> backend
 
   user = {
     username: "",
